@@ -1,0 +1,18 @@
+CC=gcc
+CFLAGS=-std=c11 -Wall -Wextra -pedantic -fPIC
+
+CFLAGS+=-g -fsanitize=address
+LDFLAGS=-fsanitize=address
+
+CFLAGS+=-DSTATISTICS
+
+.PHONY=all test
+
+all: tail wordcount wordcount-dynamic libhtab.a libhtab.so 
+
+wordcount-cc: wordcount-.cc
+	g++ -O2 -o $@ $^
+
+test: test.c all wordcount-cc
+	$(CC) $(CFLAGS) -o $@ $(LDFLAGS) $< libhtab.a
+	bash test.sh
