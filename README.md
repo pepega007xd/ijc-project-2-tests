@@ -37,3 +37,6 @@ You can instead add rules in `Makefile.template` to your project's `Makefile`, w
 
 ## Issues 
 Feel free to report any issues with the tester, either here on Github, or on Discord (username `pepega007xd`).
+
+## Warning
+Please don't submit any of the test files, I already submitted them myself.
